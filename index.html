@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLPT Reviewer</title>
+    <link href="style/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
+    <script src="style/jquery.min.js"></script>
+    <script src="style/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 main">
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input type="text" class="form-control file-upload-text" disabled placeholder="Upload Lesson Sheet..." />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default file-upload-btn">
+                        Browse...
+                        <input type="file" class="file-upload" id="fileInput" accept=".csv" />
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <button type="button" class="btn btn-primary center-button" id="btnTakeQuiz" onclick="showQuiz()">Take Quiz</button>
+            <button type="button" class="btn btn-primary center-button" id="btnShowEN" onclick="toggleHint()">Hide Hint</button>
+            <button type="button" class="btn btn-danger center-button" id="btnEndQuiz" onclick="endQuiz()">End Quiz</button>
+            <button type="button" class="btn btn-warning center-button" id="btnSkip" onclick="skipQuiz()">Skip Item</button>
+        </div>
+        <br/>
+        <div id="divContents" class="col-sm-12">
+            <div id="divProgressBar" class="col-sm-12"></div>
+            <div class="divTable">
+                <table id="csvTable"></table>
+            </div>
+            <div id="divResult" class="col-sm-12">
+                <div id="divHaveSkips">
+                    <h3>Skipped Items</h3>
+                    <div class="divTable">
+                        <table id="resultTable"></table>
+                    </div>
+                </div>
+                <div id="divPerfect" class="col-sm-12">
+                    <span class="spanHeader col-sm-12">よくやった! 完璧です!</span>
+                    <span class="spanBody col-sm-12">100%</span>
+                </div>
+            </div>
+            <div id="divQuiz" class="col-sm-12">
+                <div id="alertSkip" class="col-sm-12"><div id="skipDetails"></div></div>
+                <div id="alertCorrect" class="col-sm-12"><b>○　ピンポン！生活です！</b></div>
+                <div id="alertWrong" class="col-sm-12"><b>×　違う！も一度ください！</b></div>
+                <div id="divKanji" class="col-sm-12"></div>
+                <div id="divDetails" class="col-sm-12"></div>
+                <div id="divAnswer" class="col-sm-12">
+                    <input type="text" id="txtAnswer" class="col-sm-12" />
+                    <input type="text" id="txtCorrect"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-12 copyright">
+        All Rights Reserved &copy; 2025
+    </div>    
+
+    <audio id="soundNotif" preload="auto">
+        <source src="sounds/notif.mp3" type="audio/mp3">
+    </audio>
+    <audio id="soundCorrect" preload="auto">
+        <source src="sounds/correct.mp3" type="audio/mp3">
+    </audio>
+    <audio id="soundWrong" preload="auto">
+        <source src="sounds/wrong.mp3" type="audio/mp3">
+    </audio>
+    <script src="style/popper.min.js"></script>
+    <script src="style/bootstrap.min.js"></script>
+    <script src="style/script.js"></script>
+</body>
+</html>
