@@ -181,12 +181,17 @@ function shuffleItems(array) {
 
 document.getElementById('txtAnswer').addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
-        const correctAnswer = $("#txtCorrect").text().toUpperCase();
-        const mutipleAnswer = correctAnswer.includes(";") ? correctAnswer.split(";") : correctAnswer;
-        const mutipleAnswerTrim = mutipleAnswer.map(element => element.trim());
+        let correctAnswer = $("#txtCorrect").text().toUpperCase();
+        let userAnswer = this.value.toUpperCase();
+        let mutipleAnswer = []
+        let isCorrect = false;
 
-        if (this.value.toUpperCase() == correctAnswer 
-            || (correctAnswer.includes(";") && mutipleAnswerTrim.includes(this.value.toUpperCase()))) {
+        if (correctAnswer.includes(";")) {
+            mutipleAnswer = correctAnswer.split(";");
+            isCorrect = mutipleAnswer.includes(userAnswer);
+        }
+
+        if (userAnswer == correctAnswer || isCorrect) {
             $("#alertCorrect").show();
             $("#alertWrong").hide();
             $("#alertSkip").hide();
