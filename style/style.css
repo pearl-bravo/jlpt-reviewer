@@ -180,10 +180,9 @@ th, td {
     animation: fadeOut 1s ease-in forwards;
 }
 
-#divTable {
+.divTable {
     width: 100%;
     overflow-x: scroll;
-    overflow-y: scroll;
 }
 
 .input-group {
