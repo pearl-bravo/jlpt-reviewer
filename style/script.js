@@ -76,9 +76,11 @@ function takeQuiz() {
         $("#txtAnswer").focus();
         $("#txtAnswer").select();
         itemIndex++;
-    } else {   
+    } else {
         $("#divResult").show();
-        quizItemSkippedList.push(item);
+        if (itemSkipped != "") {            
+            quizItemSkippedList.push(itemSkipped);
+        }
         if (quizItemSkippedList.length > 1) {
             const table = document.getElementById('resultTable');
             table.innerHTML = "";
@@ -203,6 +205,7 @@ document.getElementById('txtAnswer').addEventListener('keydown', function(event)
             $("#divProgressBar").append("<div class='itemProgressCorrect' style='width:" 
                                         + (100/quizItemList.length) +"%'></div");
             $("#divProgressBar").show();
+            itemSkipped = "";
             playNotification("soundCorrect");
             takeQuiz();
         } else {
