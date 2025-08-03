@@ -115,7 +115,10 @@ function skipQuiz() {
         $("#skipDetails").html(details);
         $("#alertWrong").hide();
         $("#alertCorrect").hide();
-        $("#alertSkip").show();    
+        $("#alertSkip").show();
+        $("#txtAnswer").val("");
+        $("#txtAnswer").focus();
+        $("#txtAnswer").select();
         $("#divProgressBar").append("<div class='itemProgressSkipped' style='width:" 
                         + (100/quizItemList.length) +"%'></div");  
         $("#divProgressBar").show();
