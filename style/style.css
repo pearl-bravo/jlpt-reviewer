@@ -181,7 +181,9 @@ th, td {
 }
 
 #divTable {
+    width: 100%;
     overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .input-group {
