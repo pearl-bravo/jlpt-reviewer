@@ -78,6 +78,7 @@ function takeQuiz() {
         itemIndex++;
     } else {   
         $("#divResult").show();
+        quizItemSkippedList.push(item);
         if (quizItemSkippedList.length > 1) {
             const table = document.getElementById('resultTable');
             table.innerHTML = "";
